@@ -260,6 +260,9 @@ spa.shell = (function(){
 		$.uriAnchor.configModule({
 			schema_map : configMap.anchor_schema_map
 		});
+		//configure and initialize feature modules
+		spa.chat.configModule({});
+		spa.chat.initModule(jqueryMap.$chat);
 
 		//initialize chat slider and bind click handler
 		stateMap.is_chat_retracted = true;
