@@ -66,6 +66,21 @@ spa.shell = (function(){
 	};
 	//End DOM method /setJqueryMap/
 
+	// Begin callback method /setAnchor/
+	// Example : setChatAnchor('closed');
+	// Purpose: Change the chat component of the anchor
+	// Arguments:
+	// 	* position_type - may be 'closed' or 'opened'
+	// Action:
+	// 	Changes the URI anchor parameter 'chat' to the requested
+	//	value if possible
+	// Returns:
+	//	* true - requested anchor part was updated
+	//	* false - requested anchor part was not updated
+	// Throws : none
+	//
+	// End callack method /setAnchor/
+
 	//Begin DOM method /toggleChat/
 	// Purpose : Extends or retracts chat slider
 	// Arguments :
@@ -252,6 +267,11 @@ spa.shell = (function(){
 	//--------------------BEGIN PUBLIC METHODS---------------------
 	//Begin public method /initModule/
 	initModule = function($container){
+		//housekeeping here ...
+		//configure and initialize feature modules
+		spa.chat.configModule({});
+		spa.chat.initModule(jqueryMap.$chat);
+
 		// load HTML and map jQuery collections
 		stateMap.$container = $container;
 		$container.html( configMap.main_html );
@@ -260,9 +280,6 @@ spa.shell = (function(){
 		$.uriAnchor.configModule({
 			schema_map : configMap.anchor_schema_map
 		});
-		//configure and initialize feature modules
-		spa.chat.configModule({});
-		spa.chat.initModule(jqueryMap.$chat);
 
 		//initialize chat slider and bind click handler
 		stateMap.is_chat_retracted = true;

@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
-spa.html
-spa browser document
+	spa.html
+	spa browser document
 -->
 <html>
 <head>
@@ -29,7 +29,12 @@ spa browser document
 	<script type="text/javascript" src="js/spa.chat.js"></script> 
 	<!--load feature modules after the shell-->
 	<script type="text/javascript">
-	$(document).ready(function (){spa.initModule( $('#spa') );});
+	$(function (){
+		//housekeeping here...
+		// if we needed to configure the root module,
+		// we would invoke spa.config.Module first
+		spa.initModule( $('#spa') );
+	}());
 	</script>
 </head>
 <body>
