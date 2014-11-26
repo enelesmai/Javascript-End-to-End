@@ -91,6 +91,7 @@ spa.chat = (function () {
 	// Throws : none
 	//
 	initModule = function ( $container ) {
+		console.log($container);
 		$container.html( configMap.main_html );
 		stateMap.$container = $container;
 		setJqueryMap();
