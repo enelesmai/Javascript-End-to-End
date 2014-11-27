@@ -267,14 +267,10 @@ spa.shell = (function(){
 	//--------------------BEGIN PUBLIC METHODS---------------------
 	//Begin public method /initModule/
 	initModule = function($container){
-		//housekeeping here ...
-		//configure and initialize feature modules
-		spa.chat.configModule({});
-		spa.chat.initModule(jqueryMap.$chat);
-
 		// load HTML and map jQuery collections
 		stateMap.$container = $container;
 		$container.html( configMap.main_html );
+
 		setJqueryMap();
 		//configure uriAnchor to use our schema
 		$.uriAnchor.configModule({
@@ -296,6 +292,11 @@ spa.shell = (function(){
 		$(window)
 			.bind('hashchange', onHashchange)
 			.trigger('hashchange');
+
+		//housekeeping here ...
+		//configure and initialize feature modules
+		spa.chat.configModule({});
+		spa.chat.initModule(jqueryMap.$chat);
 	};
 	//End public method /initModule/
 	//----------------------END PULIC METHODS----------------------
